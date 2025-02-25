@@ -1,4 +1,4 @@
-def schema(usr) -> dict
+def schema(usr) -> dict:
     send_usr = {"id":usr["id"],
                 "name":usr["name"],
                 "surname":usr["surname"],
