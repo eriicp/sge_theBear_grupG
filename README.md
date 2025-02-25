@@ -1,1 +1,3 @@
 # sge_theBear_grupG
+
+![image](https://github.com/user-attachments/assets/b3f77239-518b-4518-9ca7-1f54529fbe32)
