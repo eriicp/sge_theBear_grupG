@@ -1,6 +1,6 @@
 from schema import read_sch
 
-def registrate():
+def registre():
     users = {
         "user1":{
             "id":1,
