@@ -17,13 +17,14 @@ def registre():
         "user3": {
             "id": 3,
             "name": "Oriol",
-            "surname": "Martinez",
+            "surname": "Martínez",
             "age": 19
         },
         "user4": {
             "id": 4,
             "name": "Itzan",
             "surname": "Jimenez",
-            "age": 18
+            "age": 33
         }
     }
+    return read_sch.schemas(users)
