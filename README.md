@@ -3,3 +3,4 @@
 ACTIVITAT 2
 ![image](https://github.com/user-attachments/assets/aa356505-5719-4474-a19d-dcc44de8eefb)
 
+
