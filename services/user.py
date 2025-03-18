@@ -27,3 +27,8 @@ def update(id: int, new_name: str, db:Session):
 def delete(id: int, db:Session):
     statement = select(User).where(User.id == id)
     results = db.exec(statement)
+    user = results.one()
+    db.delete(user)
+    db.commit()
+    db.refresh(user)
+    return {"Updated user succesfully"}
