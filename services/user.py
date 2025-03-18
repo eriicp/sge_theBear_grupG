@@ -24,4 +24,4 @@ def update_user_email(id: int, nou_email: str, db: Session):
     db.add(user)
     db.commit()
     db.refresh(user)
-    return {"Updated bien"}
+    return {"UPDATED": user}
