@@ -9,4 +9,5 @@ def connection_db():
         port="5432"
     )
     return conn
+connect = connection_db
 print (connection_db)
