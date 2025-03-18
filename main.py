@@ -25,15 +25,20 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/users/", response_model= dict)
-def read_user(db:Session=Depends(get_db)):
+@app.get("/users/", response_model=List[dict])
+def read_user(db: Session = Depends(get_db)):
     result = user.get_all_users(db)
     return result
 
 
 
 
-@app.post("/users/", response_model= list[dict])
-def crate_user(name:str, email:str, db:Session=Depends(get_db)):
+@app.post("/users/", response_model=dict)
+def create_user(name: str, email: str, db: Session = Depends(get_db)):
     result = user.add_new_user(name, email, db)
+    return result
+
+@app.put("/users/", response_model=List[dict])
+async def update_user (id: int, nou_email:str, db:Session = Depends(get_db)):
+    result = user.update_user_email(id, nou_email, db)
     return result
