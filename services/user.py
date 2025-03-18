@@ -13,3 +13,14 @@ def add_new_user(name: str, email:str, db:Session):
     db.commit()
     db.refresh(db_user)
     return {"Created user succesfully"}
+
+def update_user_email(id: int, nou_email: str, db: Session):
+    statement = select(User).where(User.id == id)
+    results = db.exec(statement)
+    user = results.one()
+    print("user:",user)
+    user.email = nou_email
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return {"UPDATED": "Correu actualizat", "user": user}
