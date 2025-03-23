@@ -9,5 +9,6 @@
 
 ![image](https://github.com/user-attachments/assets/bb3d7691-2d2f-48fd-971d-73d674213732)
 
+# ACTIVITAT 4
 
-
+![image](https://github.com/user-attachments/assets/63a50506-779e-43c7-b05d-cdee1569cbd0)
