@@ -25,3 +25,10 @@ def update_user_email(id: int, nou_email: str, db: Session):
     db.commit()
     db.refresh(user)
     return {"UPDATED": user}
+
+def delete_user(id:int, db:Session):
+    sql_select = select(User).where(User.id == id)
+    user_db = db.exec(sql_select).one()
+    db.delete(user_db)
+    db.commit()
+    return {"Deleted":User}
