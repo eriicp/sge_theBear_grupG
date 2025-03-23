@@ -1,12 +1,18 @@
 from fastapi import FastAPI, Depends
-from sqlmodel import SQLModel, create_engine, Session
+from sqlmodel import SQLModel, create_engine, Session , select, Field
+from typing import  List
+from fastapi import FastAPI
+from services import read
 from dotenv import load_dotenv
 from services import user
-from models.User import User
-
 import os
 
 app = FastAPI()
+
+@app.get("/root", response_model=List[dict])
+async def read_root():
+    result = read.registre()
+    return result
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -21,7 +27,7 @@ def get_db():
         db.close()
 
 @app.get("/users/", response_model= list[dict])
-def read_user(db:Session = Depends(get_db)):
+def read_user(db:Session=Depends(get_db)):
     result = user.get_all_users(db)
     return result
 
@@ -30,16 +36,12 @@ def create_user(name: str,email:str, db:Session = Depends(get_db)):
     result = user.add_new_user(name, email, db)
     return result
 
-
 @app.put("/users/", response_model=dict)
-def update_users(id: int, name: str, db:Session = Depends(get_db)):
-    statement = db.select(User).where(User.id == id)
-    result = db.exec(statement)
-    user = result.one()
+async def update_user(id : int, new_name : str, db:Session = Depends(get_db)):
+    result = user.update(id, new_name, db)
+    return result
 
-    user.name = "Oriol"
-    db.add(user)
-    db.commit()
-    return("Updated user sucsefully")
-
-
+@app.delete("/users/", response_model=dict)
+async def delete_user(id : int, db:Session = Depends(get_db)):
+    result = user.delete(id, db)
+    return result
