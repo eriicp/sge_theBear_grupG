@@ -24,3 +24,12 @@ def update_user_email(id: int, nou_email: str, db: Session):
     db.commit()
     db.refresh(user)
     return {"UPDATED": "Correu actualizat", "user": user}
+
+def delete(id: int, db:Session):
+    statement = select(User).where(User.id == id)
+    results = db.exec(statement)
+    user = results.one()
+    db.delete(user)
+    db.commit()
+    db.refresh(user)
+    return {"Updated user succesfully"}
