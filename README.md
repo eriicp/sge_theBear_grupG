@@ -6,4 +6,4 @@ Activitat2
 ![image](https://github.com/user-attachments/assets/de62df02-c44c-402c-ac68-a069504e8c04)
 
 Activitat3
-![plantuml-d3098497f04b27f14460764e25145a138f415c48](https://github.com/user-attachments/assets/f952b773-169a-4451-96dd-c353435f65cd)
+![image](https://github.com/user-attachments/assets/27fce2b2-f8af-42a7-a330-c5f6abaf0b8d)
