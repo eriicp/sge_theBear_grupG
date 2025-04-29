@@ -20,6 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register routers for each module
 app.include_router(empleats_router, prefix="/api/empleats", tags=["Empleats"])
 app.include_router(events_router, prefix="/api/events", tags=["Events"])
 app.include_router(vendes_router, prefix="/api/vendes", tags=["Vendes"])
