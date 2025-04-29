@@ -1,0 +1,1 @@
+# This file marks the punts_de_venda module as a package.
