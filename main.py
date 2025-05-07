@@ -20,6 +20,14 @@ def get_db():
 app = FastAPI()
 
 
+# ----------- VENDES -----------
+@app.post("/vendes/", response_model=dict)
+def crear_venda(
+    Data_Venda: str = Form(...),
+    Client_Venda: str = Form(...),
+    Producte_Venda: str = Form(...),
+
+
 # ----------- EMPLEATS ----------- 
 @app.post("/empleats/", response_model=dict)
 def crear_empleat(
