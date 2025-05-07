@@ -102,10 +102,59 @@ def update_event(
 def delete_event(id: int, db: Session = Depends(get_db)):
     return events.delete_event(id, db)
 
+# ----------- PLANIFICACIO ----------- 
+@app.post("/planificacio/", response_model=dict)
+def crear_planificacio(
+    Projecte: str = Form(...),
+    Tasca: str = Form(...),
+    Responsable: int = Form(...),
+    Data_Inici: str = Form(...),
+    Data_Fi: str = Form(...),
+    Estat_Tasca: str = Form(...),
+    Material_Utilitzat: str = Form(None),
+    Comentaris: str = Form(None),
+    db: Session = Depends(get_db)
+):
+    return planificacio.add_planificacio(Projecte, Tasca, Responsable, Data_Inici, Data_Fi, Estat_Tasca, Material_Utilitzat, Comentaris, db)
+
+@app.get("/planificacio/", response_model=list[dict])
+def get_planificacions(db: Session = Depends(get_db)):
+    return planificacio.get_all_planificacions(db)
+
+@app.get("/planificacio/{id}", response_model=dict)
+def get_planificacio(id: int, db: Session = Depends(get_db)):
+    return planificacio.get_planificacio_by_id(id, db)
+
+@app.put("/planificacio/{id}", response_model=dict)
+def update_planificacio(
+    id: int,
+    Projecte: str = Form(None),
+    Tasca: str = Form(None),
+    Responsable: int = Form(None),
+    Data_Inici: str = Form(None),
+    Data_Fi: str = Form(None),
+    Estat_Tasca: str = Form(None),
+    Material_Utilitzat: str = Form(None),
+    Comentaris: str = Form(None),
+    db: Session = Depends(get_db)
+):
+    return planificacio.update_planificacio(id, Projecte, Tasca, Responsable, Data_Inici, Data_Fi, Estat_Tasca, Material_Utilitzat, Comentaris, db)
 
 
+@app.delete("/planificacio/{id}", response_model=dict)
+def delete_planificacio(id: int, db: Session = Depends(get_db)):
+    return planificacio.delete_planificacio(id, db)
 
-
+# ----------- PUNTS DE VENDA -----------
+@app.post("/punts_de_venda/", response_model=dict)
+def crear_punt(
+    Nom_Punt: str = Form(...),
+    Producte: str = Form(...),
+    Quantitat: int = Form(...),
+    Preu_Total: float = Form(...),
+    Metode_Pagament: str = Form(...),
+    Tiquet_Email: bool = Form(...),
+    Data_Venda: str = Form(...),
 # ----------- COSTOS ----------- 
 @app.post("/costos/", response_model=dict)
 def crear_cost(
