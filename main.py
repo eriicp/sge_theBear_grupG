@@ -146,6 +146,8 @@ def update_planificacio(
 ):
     return planificacio.update_planificacio(id, Projecte, Tasca, Responsable, Data_Inici, Data_Fi, Estat_Tasca, Material_Utilitzat, Comentaris, db)
 
+#amunt valencia gora euskadi visca catalunya arriba españa 
+
 @app.delete("/planificacio/{id}", response_model=dict)
 def delete_planificacio(id: int, db: Session = Depends(get_db)):
     return planificacio.delete_planificacio(id, db)
