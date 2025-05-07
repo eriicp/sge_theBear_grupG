@@ -1,0 +1,11 @@
+FastAPI
+uvicorn
+pydantic
+sqlalchemy
+databases
+asyncpg
+pytest
+httpx
+sqlmodel
+psycopg2-binary
+python-dotenv
