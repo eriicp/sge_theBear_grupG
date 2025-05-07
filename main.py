@@ -1,11 +1,9 @@
-from fastapi import FastAPI, Depends, HTTPException, Form
+from fastapi import FastAPI, Depends, Form
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
 
-
-from services import empleats, planificacio, events, costos, compres, punts_de_venda, vendes, calendari
-
+from services import  costos, compres
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -104,10 +102,6 @@ def update_event(
 def delete_event(id: int, db: Session = Depends(get_db)):
     return events.delete_event(id, db)
 
-
-
-
-
 # ----------- PLANIFICACIO ----------- 
 @app.post("/planificacio/", response_model=dict)
 def crear_planificacio(
@@ -146,7 +140,6 @@ def update_planificacio(
 ):
     return planificacio.update_planificacio(id, Projecte, Tasca, Responsable, Data_Inici, Data_Fi, Estat_Tasca, Material_Utilitzat, Comentaris, db)
 
-#amunt valencia gora euskadi visca catalunya arriba españa 
 
 @app.delete("/planificacio/{id}", response_model=dict)
 def delete_planificacio(id: int, db: Session = Depends(get_db)):
@@ -162,116 +155,80 @@ def crear_punt(
     Metode_Pagament: str = Form(...),
     Tiquet_Email: bool = Form(...),
     Data_Venda: str = Form(...),
+# ----------- COSTOS ----------- 
+@app.post("/costos/", response_model=dict)
+def crear_cost(
+    Descripcio: str = Form(...),
+    Categoria: str = Form(...),
+    Quantitat: float = Form(...),
+    Data_Cost: str = Form(...),
+    Pagat_Per: int = Form(...),
     db: Session = Depends(get_db)
 ):
-    return punts_de_venda.add_punt(Nom_Punt, Producte, Quantitat, Preu_Total, Metode_Pagament, Tiquet_Email, Data_Venda, db)
+    return costos.add_cost(Descripcio, Categoria, Quantitat, Data_Cost, Pagat_Per, db)
 
-@app.get("/punts_de_venda/", response_model=list[dict])
-def get_punts(db: Session = Depends(get_db)):
-    return punts_de_venda.get_all_punts(db)
+@app.get("/costos/", response_model=list[dict])
+def get_costos(db: Session = Depends(get_db)):
+    return costos.get_all_costos(db)
 
-@app.get("/punts_de_venda/{id}", response_model=dict)
-def get_punt(id: int, db: Session = Depends(get_db)):
-    return punts_de_venda.get_punt_by_id(id, db)
+@app.get("/costos/{id}", response_model=dict)
+def get_cost(id: int, db: Session = Depends(get_db)):
+    return costos.get_cost_by_id(id, db)
 
-@app.put("/punts_de_venda/{id}", response_model=dict)
-def update_punt(
+@app.put("/costos/{id}", response_model=dict)
+def update_cost(
     id: int,
-    Nom_Punt: str = Form(None),
-    Producte: str = Form(None),
-    Quantitat: int = Form(None),
-    Preu_Total: float = Form(None),
-    Metode_Pagament: str = Form(None),
-    Tiquet_Email: bool = Form(None),
-    Data_Venda: str = Form(None),
+    Descripcio: str = Form(None),
+    Categoria: str = Form(None),
+    Quantitat: float = Form(None),
+    Data_Cost: str = Form(None),
+    Pagat_Per: int = Form(None),
     db: Session = Depends(get_db)
 ):
-    return punts_de_venda.update_punt(id, Nom_Punt, Producte, Quantitat, Preu_Total, Metode_Pagament, Tiquet_Email, Data_Venda, db)
+    return costos.update_cost(id, Descripcio, Categoria, Quantitat, Data_Cost, Pagat_Per, db)
 
-@app.delete("/punts_de_venda/{id}", response_model=dict)
-def delete_punt(id: int, db: Session = Depends(get_db)):
-    return punts_de_venda.delete_punt(id, db)
+@app.delete("/costos/{id}", response_model=dict)
+def delete_cost(id: int, db: Session = Depends(get_db)):
+    return costos.delete_cost(id, db)
 
-# ----------- VENDES -----------
-@app.post("/vendes/", response_model=dict)
-def crear_venda(
-    Data_Venda: str = Form(...),
-    Client_Venda: str = Form(...),
-    Producte_Venda: str = Form(...),
+# ----------- COMPRES -----------
+@app.post("/compres/", response_model=dict)
+def crear_compra(
+    Data_Compra: str = Form(...),
+    Proveidor: str = Form(...),
+    Producte_Compra: str = Form(...),
     Quantitat: int = Form(...),
     Preu_Unitari: float = Form(...),
     Total: float = Form(...),
-    Metode_Pagament: str = Form(...),
-    Id_Punt: int = Form(...),
+    Estat_Comanda: str = Form(...),
     db: Session = Depends(get_db)
 ):
-    return vendes.add_venda(Data_Venda, Client_Venda, Producte_Venda, Quantitat, Preu_Unitari, Total, Metode_Pagament, Id_Punt, db)
+    return compres.add_compra(Data_Compra, Proveidor, Producte_Compra, Quantitat, Preu_Unitari, Total, Estat_Comanda, db)
 
-@app.get("/vendes/", response_model=list[dict])
-def get_vendes(db: Session = Depends(get_db)):
-    return vendes.get_all_vendes(db)
+@app.get("/compres/", response_model=list[dict])
+def get_compres(db: Session = Depends(get_db)):
+    return compres.get_all_compres(db)
 
-@app.get("/vendes/{id}", response_model=dict)
-def get_venda(id: int, db: Session = Depends(get_db)):
-    return vendes.get_venda_by_id(id, db)
+@app.get("/compres/{id}", response_model=dict)
+def get_compra(id: int, db: Session = Depends(get_db)):
+    return compres.get_compra_by_id(id, db)
 
-@app.put("/vendes/{id}", response_model=dict)
-def update_venda(
+@app.put("/compres/{id}", response_model=dict)
+def update_compra(
     id: int,
-    Data_Venda: str = Form(None),
-    Client_Venda: str = Form(None),
-    Producte_Venda: str = Form(None),
+    Data_Compra: str = Form(None),
+    Proveidor: str = Form(None),
+    Producte_Compra: str = Form(None),
     Quantitat: int = Form(None),
     Preu_Unitari: float = Form(None),
     Total: float = Form(None),
-    Metode_Pagament: str = Form(None),
-    Id_Punt: int = Form(None),
+    Estat_Comanda: str = Form(None),
     db: Session = Depends(get_db)
 ):
-    return vendes.update_venda(id, Data_Venda, Client_Venda, Producte_Venda, Quantitat, Preu_Unitari, Total, Metode_Pagament, Id_Punt, db)
+    return compres.update_compra(id, Data_Compra, Proveidor, Producte_Compra, Quantitat, Preu_Unitari, Total, Estat_Comanda, db)
 
-@app.delete("/vendes/{id}", response_model=dict)
-def delete_venda(id: int, db: Session = Depends(get_db)):
-    return vendes.delete_venda(id, db)
-
-# ----------- CALENDARI -----------
-@app.post("/calendari/", response_model=dict)
-def crear_reunio(
-    Nom_Reunio: str = Form(...),
-    Data_Reunio: str = Form(...),
-    Hora_Inici: str = Form(...),
-    Hora_Fi: str = Form(...),
-    Ubicacio_Reunio: str = Form(...),
-    Etiquetes: str = Form(None),
-    Recurrencia: bool = Form(False),
-    db: Session = Depends(get_db)
-):
-    return calendari.add_reunio(Nom_Reunio, Data_Reunio, Hora_Inici, Hora_Fi, Ubicacio_Reunio, Etiquetes, Recurrencia, db)
-
-@app.get("/calendari/", response_model=list[dict])
-def get_reunions(db: Session = Depends(get_db)):
-    return calendari.get_all_reunions(db)
-
-@app.get("/calendari/{id}", response_model=dict)
-def get_reunio(id: int, db: Session = Depends(get_db)):
-    return calendari.get_reunio_by_id(id, db)
-
-@app.put("/calendari/{id}", response_model=dict)
-def update_reunio(
-    id: int,
-    Nom_Reunio: str = Form(None),
-    Data_Reunio: str = Form(None),
-    Hora_Inici: str = Form(None),
-    Hora_Fi: str = Form(None),
-    Ubicacio_Reunio: str = Form(None),
-    Etiquetes: str = Form(None),
-    Recurrencia: bool = Form(None),
-    db: Session = Depends(get_db)
-):
-    return calendari.update_reunio(id, Nom_Reunio, Data_Reunio, Hora_Inici, Hora_Fi, Ubicacio_Reunio, Etiquetes, Recurrencia, db)
-
-@app.delete("/calendari/{id}", response_model=dict)
-def delete_reunio(id: int, db: Session = Depends(get_db)):
-    return calendari.delete_reunio(id, db)
+@app.delete("/compres/{id}", response_model=dict)
+def delete_compra(id: int, db: Session = Depends(get_db)):
+    return compres.delete_compra(id, db)
 
 
