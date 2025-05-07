@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee599349-80b1-4d2e-9174-b5855da47d48" name="Changes" comment="main.py acabat">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee599349-80b1-4d2e-9174-b5855da47d48" name="Changes" comment="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +22,34 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Eric" />
+        <entry key="$PROJECT_DIR$" value="dev_itzan" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;byglory&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/eriicp/sge_theBear_grupG.git&quot;,
+    &quot;accountId&quot;: &quot;ced91079-a06e-4a1d-84a3-ae61bd31088f&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;eriicp&quot;,
+    &quot;repository&quot;: &quot;sge_theBear_grupG&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -43,7 +64,7 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.read_sch.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__eric&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#17 on dev__itzan&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/byeri/Desktop/sge_theBear_grupG&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
@@ -171,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742288735717</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py">
+      <option name="closed" value="true" />
+      <created>1746640269215</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746640269215</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +219,9 @@
     <MESSAGE value="connect.py acabat" />
     <MESSAGE value="schema acabat" />
     <MESSAGE value="read acabat" />
+    <MESSAGE value="Acabado?" />
     <MESSAGE value="main.py acabat" />
-    <option name="LAST_COMMIT_MESSAGE" value="main.py acabat" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py" />
   </component>
 </project>
