@@ -19,6 +19,8 @@ def get_db():
 
 app = FastAPI()
 
+#GORA ETAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa  1261783127831298379127398298739812
+
 # ----------- VENDES -----------
 @app.post("/vendes/", response_model=dict)
 def crear_venda(
