@@ -20,7 +20,7 @@ def get_db():
 app = FastAPI()
 
 # ----------- EMPLEATS ----------- 
-@app.post("/empleats/", response_model=dict)
+@app.post("/empleats/crear", response_model=dict)
 def crear_empleat(
     Nombre_Empleat: str = Form(...),
     Puesto_Empleat: str = Form(...),
@@ -32,7 +32,7 @@ def crear_empleat(
 ):
     return empleats.add_empleat(Nombre_Empleat, Puesto_Empleat, Departament_Empleat, Email_Empleat, Telefon_Empleat, Id_Gerent_Empleat, db)
 
-@app.get("/empleats/", response_model=list[dict])
+@app.get("/empleats/ver", response_model=list[dict])
 def get_empleats(db: Session = Depends(get_db)):
     return empleats.get_all_empleats(db)
 

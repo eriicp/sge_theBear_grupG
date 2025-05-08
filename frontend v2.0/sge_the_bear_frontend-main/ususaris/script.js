@@ -1,5 +1,5 @@
 // URL del endpoint de la API
-const API_URL = "http://localhost:8000/users/read/";
+const API_URL = "http://localhost:8000/empleats/ver/";
 
 // Función para obtener los datos de los usuarios
 async function fetchUsers() {
@@ -29,20 +29,32 @@ function displayUsers(users) {
 
         // Creamos las celdas para cada campo del usuario
         const idCell = document.createElement("td");
-        idCell.textContent = user.user.id;
+        idCell.textContent = empleat.empleat.Id_Empleat;
         row.appendChild(idCell);
 
         const nameCell = document.createElement("td");
-        nameCell.textContent = user.user.name;
+        nameCell.textContent = empleat.empleat.Nombre_Empleat;
         row.appendChild(nameCell);
 
+        const puestoCell = document.createElement("td");
+        puestoCell.textContent = empleat.empleat.Puesto_Empleat;
+        row.appendChild(puestoCell);
+
+        const departamentCell = document.createElement("td");
+        departamentCell.textContent = empleat.empleat.Departament_Empleat;
+        row.appendChild(departamentCell);
+
         const emailCell = document.createElement("td");
-        emailCell.textContent = user.user.email;
+        emailCell.textContent = empleat.empleat.Email_Empleat;
         row.appendChild(emailCell);
 
-        const ageCell = document.createElement("td");
-        ageCell.textContent = user.user.age;
-        row.appendChild(ageCell);
+        const telefonCell = document.createElement("td");
+        telefonCell.textContent = empleat.empleat.Telefon_Empleat;
+        row.appendChild(telefonCell);
+
+        const idGerentCell = document.createElement("td");
+        idGerentCell.textContent = empleat.empleat.Id_Gerent_Empleat;
+        row.appendChild(idGerentCell);
 
         // Añadimos la fila a la tabla
         tableBody.appendChild(row);
