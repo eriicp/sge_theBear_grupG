@@ -1,23 +1,23 @@
 from fastapi import FastAPI, Depends, HTTPException, Form
+from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 import os
 
 from services import empleats, planificacio, events, costos, compres, punts_de_venda, vendes, calendari
+app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 SQLModel.metadata.create_all(engine)
-
-def get_db():
-    db = Session(engine)
-    try:
-        yield db
-    finally:
-        db.close()
-
-app = FastAPI()
 
 # ----------- EMPLEATS ----------- 
 @app.post("/empleats/crear", response_model=dict)
