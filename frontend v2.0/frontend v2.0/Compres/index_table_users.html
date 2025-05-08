@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llista de Compres</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .action-buttons {
+            margin-top: 10px;
+        }
+        .action-buttons button a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Llista de Compres</h1>
+    <div class="action-buttons">
+        <button><a href="index_form.html" class="action-btn">AFEGIR COMPRA</a></button>
+    </div>
+
+    <table id="compresTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Proveïdor</th>
+                <th>Producte</th>
+                <th>Quantitat</th>
+                <th>Preu Unitari</th>
+                <th>Total</th>
+                <th>Estat</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="script_.js"></script>
+</body>
+</html>

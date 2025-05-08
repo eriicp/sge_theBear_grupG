@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir nova reunio</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="../Vendes/index_form.html">Vendes</a>
+                    <a href="#">Events</a>
+                    <a href="../Compres/index_form.html">Compres</a>
+                    <a href="../Costos/index_form.html">Costos</a>
+                    <a href="../Planificacio/index_form.html">Planificacio</a>
+                    <a href="../Calendari/index_form.html">Calendari</a>
+                    <a href="../Punts de venda/index_form.html">Punts de venda</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nou Event</h1>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="Nom_Event">Nom_Event</label>
+                    <input type="text" id="Nom_Event" name="Nom_Event" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Data_Event">Data_Event:</label>
+                    <input type="date" id="Data_Event" name="Data_Event" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Hora_Event">Hora_Event:</label>
+                    <input type="time" id="Hora_Event" name="Hora_Event" required>
+                </div>
+                 <div class="form-group">
+                    <label for="Ubicacio_Event">Ubicacio_Event:</label>
+                    <input type="text" id="Ubicacio_Event" name="Ubicacio_Event" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Ubicacio_Event">Organitzador_Event:</label>
+                    <input type="text" id="Organitzador_Event" name="Organitzador_Event" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Estat_Event">Estat_Event:</label>
+                    <input type="text" id="Estat_Event" name="Estat_Event" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Entrades_Disponibles">Entrades_Disponibles:</label>
+                    <input type="number" id="Entrades_Disponibles" name="Entrades_Disponibles" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Privat">Privat:</label>
+                    <input type="text" pattern="^(true|false)$" id="Privat" name="Privat">
+                 </div>
+                <button type="submit">Crear Event</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="index_table_users.html" class="action-btn">
+                    SHOW TABLE EVENT
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>

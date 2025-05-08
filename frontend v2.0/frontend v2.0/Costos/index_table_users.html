@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llista de Costos</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+</style>
+<body>
+    <h1>Llista de Costos</h1>
+    <div class="action-buttons">
+        <button><a href="index_form.html" class="action-btn">AFEGIR COST</a></button>
+    </div>
+
+    <table id="costosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descripció</th>
+                <th>Categoria</th>
+                <th>Quantitat</th>
+                <th>Data</th>
+                <th>Pagat per</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
