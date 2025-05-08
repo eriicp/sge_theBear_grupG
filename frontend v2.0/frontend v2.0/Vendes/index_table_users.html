@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios</title>
-    <link rel="stylesheet" href="style_form.css">
+    <title>Llista de Vendes</title>
+    <link rel="stylesheet" href="../css/style_form.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,33 +23,37 @@
         th {
             background-color: #f4f4f4;
         }
+        .action-buttons {
+            margin-top: 10px;
+        }
+        .action-buttons button a {
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
-    <h1>Lista de Usuarios</h1>
-    <table id="usersTable">
+    <h1>Llista de Vendes</h1>
+    <div class="action-buttons">
+        <button><a href="index_form.html" class="action-btn">AFEGIR VENDA</a></button>
+    </div>
+    <table id="vendesTable">
         <thead>
-            <div class="action-buttons">
-                <button><a href="index_form.html" class="action-btn">
-                    ADD USER
-                </a></button>
-            </div>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Puesto</th>
-                <th>Departamento</th>
-                <th>email</th>
-                <th>Telefono</th>
-                <th>id_gerente</th>
+                <th>Data</th>
+                <th>Client</th>
+                <th>Producte</th>
+                <th>Quantitat</th>
+                <th>Preu Unitari</th>
+                <th>Total</th>
+                <th>Mètode Pagament</th>
+                <th>ID Punt</th>
             </tr>
         </thead>
-        <tbody>
-            <!-- Los datos se insertarán aquí dinámicamente -->
-        </tbody>
+        <tbody></tbody>
     </table>
 
-    <!-- Cargamos el archivo JavaScript -->
-    <script src="script.js"></script>
+    <script src="script_table_vendes.js"></script>
 </body>
 </html>
