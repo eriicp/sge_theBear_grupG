@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee599349-80b1-4d2e-9174-b5855da47d48" name="Changes" comment="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py">
+    <list default="true" id="ee599349-80b1-4d2e-9174-b5855da47d48" name="Changes" comment="backend final?">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sge_theBear_grupG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sge_theBear_grupG.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Calendari/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Compres/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Costos/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Events/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Planificacio/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Punts de venda/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/Vendes/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/css/style_form.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/css/style_table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/css/styles_main_page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/main_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/script_main_page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/ususaris/index_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/ususaris/index_table_users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/ususaris/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend v2.0/sge_the_bear_frontend-main/ususaris/script_form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,20 +78,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.connect.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.read_sch.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__itzan&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/34662/Downloads&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.connect.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.read_sch.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev__itzan",
+    "last_opened_file_path": "C:/Users/34662/PycharmProjects/sge_theBear_grupG/frontend v2.0",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\34662\PycharmProjects\sge_theBear_grupG\frontend v2.0" />
+      <recent name="C:\Users\34662\PycharmProjects\sge_theBear_grupG\models" />
+      <recent name="C:\Users\34662\PycharmProjects\sge_theBear_grupG\schema" />
+      <recent name="C:\Users\34662\PycharmProjects\sge_theBear_grupG\services" />
       <recent name="C:\Users\byeri\Desktop\sge_theBear_grupG" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\34662\PycharmProjects\sge_theBear_grupG" />
     </key>
   </component>
   <component name="RunManager">
@@ -200,7 +227,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746640269215</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="backend final?">
+      <option name="closed" value="true" />
+      <created>1746707268493</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746707268493</updated>
+    </task>
+    <task id="LOCAL-00012" summary="backend final?">
+      <option name="closed" value="true" />
+      <created>1746707293161</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746707293161</updated>
+    </task>
+    <task id="LOCAL-00013" summary="backend final?">
+      <option name="closed" value="true" />
+      <created>1746707456379</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746707456379</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +273,8 @@
     <MESSAGE value="Acabado?" />
     <MESSAGE value="main.py acabat" />
     <MESSAGE value="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev_itzan' into dev_itzan&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/sge_theBear_grupG.iml&#10;#&#9;.idea/vcs.xml&#10;#&#9;main.py" />
+    <MESSAGE value="main areglado" />
+    <MESSAGE value="backend final?" />
+    <option name="LAST_COMMIT_MESSAGE" value="backend final?" />
   </component>
 </project>

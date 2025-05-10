@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir Cost</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+        <header class="erp-header">
+            <div class="erp-logo">ERP System</div>
+            <nav class="erp-nav">
+                <a href="../main_page.html">Inici</a>
+                <a href="../ususaris/index_form.html">Usuaris</a>
+                <a href="../Vendes/index_form.html">Vendes</a>
+                <a href="../Events/index_form.html">Events</a>
+                <a href="../Compres/index_form.html">Compres</a>
+                <a href="#">Costos</a>
+                <a href="../Planificacio/index_form.html">Planificacio</a>
+                <a href="../Calendari/index_form.html">Calendari</a>
+                <a href="../Punts de venda/index_form.html">Punts de venda</a>
+            </nav>
+            <div class="erp-user">Admin</div>
+        </header>
+
+        <div class="container">
+            <h1>Afegir Cost</h1>
+            <form id="costForm">
+                <div class="form-group">
+                    <label>Descripció:</label>
+                    <input type="text" id="descripcio" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria:</label>
+                    <input type="text" id="categoria" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantitat:</label>
+                    <input type="number" step="0.01" id="quantitat" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Data del cost:</label>
+                    <input type="date" id="data_cost" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Pagat per (ID):</label>
+                    <input type="number" id="pagat_per" required>
+                </div>
+
+                <button type="submit">Afegir Cost</button>
+                <br><br>
+                <div class="action-buttons">
+                    <button><a href="index_table_users.html" class="action-btn">SHOW TABLE COSTOS</a></button>
+                </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>

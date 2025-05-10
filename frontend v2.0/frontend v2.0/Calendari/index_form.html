@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir nova reunió</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+        <header class="erp-header">
+            <div class="erp-logo">ERP System</div>
+            <nav class="erp-nav">
+                <a href="../main_page.html">Inici</a>
+                <a href="../ususaris/index_form.html">Usuaris</a>
+                <a href="../Vendes/index_form.html">Vendes</a>
+                <a href="../Events/index_form.html">Events</a>
+                <a href="../Compres/index_form.html">Compres</a>
+                <a href="../Costos/index_form.html">Costos</a>
+                <a href="../Planificacio/index_form.html">Planificació</a>
+                <a href="#">Calendari</a>
+                <a href="../Punts de venda/index_form.html">Punts de venda</a>
+            </nav>
+            <div class="erp-user">Admin</div>
+        </header>
+        <div class="container">
+            <h1>Crear nova reunió</h1>
+            <form id="reunioForm">
+                <div class="form-group">
+                    <label for="nom_reunio">Nom de la reunió:</label>
+                    <input type="text" id="nom_reunio" name="Nom_Reunio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="data_reunio">Data:</label>
+                    <input type="date" id="data_reunio" name="Data_Reunio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora_inici">Hora d'inici:</label>
+                    <input type="time" id="hora_inici" name="Hora_Inici" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora_fi">Hora de fi:</label>
+                    <input type="time" id="hora_fi" name="Hora_Fi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ubicacio">Ubicació:</label>
+                    <input type="text" id="ubicacio" name="Ubicacio_Reunio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="etiquetes">Etiquetes (opcional):</label>
+                    <input type="text" id="etiquetes" name="Etiquetes">
+                </div>
+
+                <div class="form-group">
+                    <label for="recurrencia">És recurrent?</label>
+                    <input type="text" id="recurrencia" name="Recurrencia" pattern="^(true|false)$">
+                </div>
+
+                <button type="submit">Crear Reunió</button>
+                <br><br>
+                <div class="action-buttons">
+                    <button><a href="index_table_users.html" class="action-btn">
+                        SHOW TABLE REUNIONS
+                    </a></button>
+                </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+    <script src="script_form.js"></script>
+</body>
+</html>

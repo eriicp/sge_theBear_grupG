@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir nova venda</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+        <header class="erp-header">
+            <div class="erp-logo">ERP System</div>
+            <nav class="erp-nav">
+                <a href="../main_page.html">Inici</a>
+                <a href="../ususaris/index_form.html">Usuaris</a>
+                <a href="#">Vendes</a>
+                <a href="../Events/index_form.html">Events</a>
+                <a href="../Compres/index_form.html">Compres</a>
+                <a href="../Costos/index_form.html">Costos</a>
+                <a href="../Planificacio/index_form.html">Planificacio</a>
+                <a href="../Calendari/index_form.html">Calendari</a>
+                <a href="../Punts de venda/index_form.html">Punts de venda</a>
+            </nav>
+            <div class="erp-user">Admin</div>
+        </header>
+
+        <div class="container">
+            <h1>Afegir Venda</h1>
+            <form id="vendaForm">
+                <div class="form-group">
+                    <label>Data Venda:</label>
+                    <input type="date" id="data_venda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Client:</label>
+                    <input type="text" id="client_venda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Producte:</label>
+                    <input type="text" id="producte_venda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantitat:</label>
+                    <input type="number" id="quantitat" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Preu Unitari:</label>
+                    <input type="number" step="0.01" id="preu_unitari" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Total:</label>
+                    <input type="number" step="0.01" id="total" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mètode Pagament:</label>
+                    <input type="text" id="metode_pagament" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ID Punt:</label>
+                    <input type="number" id="id_punt" required>
+                </div>
+
+                <button type="submit">Afegir Venda</button>
+                <br><br>
+                <div class="action-buttons">
+                    <button><a href="index_table_users.html" class="action-btn">SHOW TABLE VENDES</a></button>
+                </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>

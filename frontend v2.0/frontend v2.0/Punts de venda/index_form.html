@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir nova reunio</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="../Vendes/index_form.html">Vendes</a>
+                    <a href="../Events/index_form.html">Events</a>
+                    <a href="../Compres/index_form.html">Compres</a>
+                    <a href="../Costos/index_form.html">Costos</a>
+                    <a href="../Planificacio/index_form.html">Planificacio</a>
+                    <a href="../Calendari/index_form.html">Calendari</a>
+                    <a href="#">Punts de venda</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nou Punt de Venta</h1>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="Nom_punt">Nom:</label>
+                    <input type="text" id="Nom_punt" name="Nom_punt" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Producte">Producte</label>
+                    <input type="text" id="Producte" name="Producte" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Quantitat">Quantitat:</label>
+                    <input type="number" id="Quantitat" name="Quantitat" min="1" max="999" required>
+                </div>
+                <div class="form-group">
+                    <label for="preu">Preu Total:</label>
+                    <input type="number" id="preu" name="Quantitat" min="1" max="999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="metode">Metode pagament:</label>
+                    <input type="text" id="metode" name="metode" required>
+                </div> 
+                <!-- la resposta a de ser true or false -->
+                <div class="form-group">
+                    <label for="tiquet">Tiquet</label>
+                    <input type="text" id="tiquet" pattern="^(true|false)$ name="tiquet" required>
+                </div>
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <button type="submit">Crear Usuari</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="index_table_users.html" class="action-btn">
+                    SHOW TABLE PUNTS DE VENDA
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>

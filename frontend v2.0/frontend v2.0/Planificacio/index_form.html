@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir nova reunio</title>
+    <link rel="stylesheet" href="../css/style_form.css">
+</head>
+<body>
+    <div class="erp-container">
+            <!-- Capçalera Odoo-style -->
+            <header class="erp-header">
+                <div class="erp-logo">ERP System</div>
+                <nav class="erp-nav">
+                    <a href="../main_page.html">Inici</a>
+                    <a href="../ususaris/index_form.html">Usuaris</a>
+                    <a href="../Vendes/index_form.html">Vendes</a>
+                    <a href="../Events/index_form.html">Events</a>
+                    <a href="../Compres/index_form.html">Compres</a>
+                    <a href="../Costos/index_form.html">Costos</a>
+                    <a href="#">Planificacio</a>
+                    <a href="../Calendari/index_form.html">Calendari</a>
+                    <a href="../Punts de venda/index_form.html">Punts de venda</a>
+                </nav>
+                <div class="erp-user">Admin</div>
+            </header>
+        <div class="container">
+            <h1>Crear Nova Planificacio</h1>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="Projecte">Projecte:</label>
+                    <input type="text" id="Projecte" name="Projecte" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Tasca">Tasca:</label>
+                    <input type="text" id="Tasca" name="Tasca" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Responsable">Responsable:</label>
+                    <input type="text" id="Responsable" name="Responsable" required>
+                </div>
+                 <div class="form-group">
+                    <label for="Data_Inici">Data_Inici:</label>
+                    <input type="date" id="Data_Inici" name="Data_Inici" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Data_Fi">Data_Fi:</label>
+                    <input type="date" id="Data_Fi" name="Data_Fi" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Estat_Tasca">Estat_Tasca:</label>
+                    <input type="text" id="Estat_Tasca" name="Estat_Tasca" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="Material_Utilitzat">Material_Utilitzat:</label>
+                    <input type="text" id="Material_Utilitzat" name="Material_Utilitzat">
+                 </div>
+                 <div class="form-group">
+                    <label for="Comentaris">Comentaris:</label>
+                    <input type="text" id="Comentaris" name="Comentaris" >
+                 </div>
+                <button type="submit">Crear Planificacio</button>
+                </br></br>
+                <div class="action-buttons">
+                <button><a href="index_table_users.html" class="action-btn">
+                    SHOW TABLE PLANIFICACIO
+                </a></button>
+             </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="script_form.js"></script>
+</body>
+</html>
