@@ -25,40 +25,40 @@
         </header>
         <div class="container">
             <h1>Crear nova reunió</h1>
-            <form id="reunioForm">
+            <form id="reunionForm">  <!-- Cambiado de reunioForm a reunionForm -->
                 <div class="form-group">
-                    <label for="nom_reunio">Nom de la reunió:</label>
-                    <input type="text" id="nom_reunio" name="Nom_Reunio" required>
+                    <label for="Nom_Reunio">Nom de la reunió:</label>
+                    <input type="text" id="Nom_Reunio" name="Nom_Reunio" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="data_reunio">Data:</label>
-                    <input type="date" id="data_reunio" name="Data_Reunio" required>
+                    <label for="Data_Reunio">Data:</label>
+                    <input type="date" id="Data_Reunio" name="Data_Reunio" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="hora_inici">Hora d'inici:</label>
-                    <input type="time" id="hora_inici" name="Hora_Inici" required>
+                    <label for="Hora_Inici">Hora d'inici:</label>
+                    <input type="time" id="Hora_Inici" name="Hora_Inici" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="hora_fi">Hora de fi:</label>
-                    <input type="time" id="hora_fi" name="Hora_Fi" required>
+                    <label for="Hora_Fi">Hora de fi:</label>
+                    <input type="time" id="Hora_Fi" name="Hora_Fi" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="ubicacio">Ubicació:</label>
-                    <input type="text" id="ubicacio" name="Ubicacio_Reunio" required>
+                    <label for="Ubicacio_Reunio">Ubicació:</label>
+                    <input type="text" id="Ubicacio_Reunio" name="Ubicacio_Reunio" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="etiquetes">Etiquetes (opcional):</label>
-                    <input type="text" id="etiquetes" name="Etiquetes">
+                    <label for="Etiquetes">Etiquetes (opcional):</label>
+                    <input type="text" id="Etiquetes" name="Etiquetes">
                 </div>
 
                 <div class="form-group">
-                    <label for="recurrencia">És recurrent?</label>
-                    <input type="text" id="recurrencia" name="Recurrencia" pattern="^(true|false)$">
+                    <label for="Recurrencia">És recurrent?</label>
+                    <input type="checkbox" id="Recurrencia" name="Recurrencia">
                 </div>
 
                 <button type="submit">Crear Reunió</button>

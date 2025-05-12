@@ -187,6 +187,7 @@ def delete_cost(id: int, db: Session = Depends(get_db)):
 
 # ----------- COMPRES -----------
 @app.post("/compres/crear", response_model=dict)
+
 def crear_compra(
     Data_Compra: str = Form(...),
     Proveidor: str = Form(...),

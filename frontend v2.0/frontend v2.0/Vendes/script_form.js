@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         // Obtener valores del formulario
-        const Data_Venda = document.getElementById('Data_Venda').value.trim();
-        const Client_Venda = document.getElementById('Client_Venda').value.trim();
-        const Producte_Venda = document.getElementById('Producte_Venda').value.trim();
-        const Quantitat = parseInt(document.getElementById('Quantitat').value);
-        const Preu_Unitari = parseFloat(document.getElementById('Preu_Unitari').value);
-        const Total = parseFloat(document.getElementById('Total').value);
-        const Metode_Pagament = document.getElementById('Metode_Pagament').value.trim();
-        const Id_Punt = parseInt(document.getElementById('Id_Punt').value);
+const Data_Venda = document.getElementById('data_venda').value.trim();
+const Client_Venda = document.getElementById('client_venda').value.trim();
+const Producte_Venda = document.getElementById('producte_venda').value.trim();
+const Quantitat = parseInt(document.getElementById('quantitat').value);
+const Preu_Unitari = parseFloat(document.getElementById('preu_unitari').value);
+const Total = parseFloat(document.getElementById('total').value);
+const Metode_Pagament = document.getElementById('metode_pagament').value.trim();
+const Id_Punt = parseInt(document.getElementById('id_punt').value);
 
         try {
             // Crear objeto FormData para enviar como application/x-www-form-urlencoded
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 showMessage(data.message || 'Venda creada correctament!', 'success');
                 form.reset(); // Limpiar formulario
-                fetchVendes(); // Actualizar tabla tras creación
+
             } else {
                 showMessage(`Error: ${data.detail || 'Error desconegut'}`, 'error');
             }

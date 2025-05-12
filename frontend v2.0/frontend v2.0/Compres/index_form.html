@@ -29,38 +29,43 @@
             <form id="compraForm">
                 <div class="form-group">
                     <label>Data de la Compra:</label>
-                    <input type="date" id="data_compra" required>
+                    <input type="date" id="Data_Compra" required>
                 </div>
 
                 <div class="form-group">
                     <label>Proveïdor:</label>
-                    <input type="text" id="proveidor" required>
+                    <input type="text" id="Proveidor" required>
                 </div>
 
                 <div class="form-group">
                     <label>Producte:</label>
-                    <input type="text" id="producte_compra" required>
+                    <input type="text" id="Producte_Compra" required>
                 </div>
 
                 <div class="form-group">
                     <label>Quantitat:</label>
-                    <input type="number" id="quantitat" required>
+                    <input type="number" id="Quantitat" min="1" required>
                 </div>
 
                 <div class="form-group">
                     <label>Preu Unitari:</label>
-                    <input type="number" step="0.01" id="preu_unitari" required>
+                    <input type="number" step="0.01" id="Preu_Unitari" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Total:</label>
+                    <input type="number" step="0.01" id="Total" readonly>
                 </div>
 
                 <div class="form-group">
                     <label>Estat de la Comanda:</label>
-                    <input type="text" id="estat_comanda" required>
+                    <input type="text" id="Estat_Comanda" required>
                 </div>
 
                 <button type="submit">Afegir Compra</button>
                 <br><br>
                 <div class="action-buttons">
-                    <button><a href="index_table_users.html" class="action-btn">SHOW TABLE COMPRES</a></button>
+                    <button><a href="index_table_users.html" class="action-btn">VEURE TAULA DE COMPRES</a></button>
                 </div>
             </form>
             <div id="message" class="message"></div>
