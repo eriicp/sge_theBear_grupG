@@ -5,53 +5,90 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Obtener valores del formulario
-        const Projecte = document.getElementById('Projecte').value.trim();
-        const Tasca = document.getElementById('Tasca').value.trim();
-        const Responsable = parseInt(document.getElementById('Responsable').value);
-        const Data_Inici = document.getElementById('Data_Inici').value.trim();
-        const Data_Fi = document.getElementById('Data_Fi').value.trim();
-        const Estat_Tasca = document.getElementById('Estat_Tasca').value.trim();
-        const Material_Utilitzat = document.getElementById('Material_Utilitzat').value.trim();
-        const Comentaris = document.getElementById('Comentaris').value.trim();
-
         try {
-            // Crear objeto FormData para enviar como application/x-www-form-urlencoded
+            // Validación de fechas
+            const dataInici = new Date(document.getElementById('Data_Inici').value);
+            const dataFi = new Date(document.getElementById('Data_Fi').value);
+
+            if (dataFi < dataInici) {
+                throw new Error("La data fi no pot ser anterior a la data d'inici");
+            }
+
+            // Obtener valores
             const formData = new URLSearchParams();
-            formData.append('Projecte', Projecte);
-            formData.append('Tasca', Tasca);
-            formData.append('Responsable', Responsable);
-            formData.append('Data_Inici', Data_Inici);
-            formData.append('Data_Fi', Data_Fi);
-            formData.append('Estat_Tasca', Estat_Tasca);
-            if (Material_Utilitzat) formData.append('Material_Utilitzat', Material_Utilitzat);
-            if (Comentaris) formData.append('Comentaris', Comentaris);
+            formData.append('Projecte', document.getElementById('Projecte').value.trim());
+            formData.append('Tasca', document.getElementById('Tasca').value.trim());
+
+            // Validar que Responsable es un número
+            const responsableValue = document.getElementById('Responsable').value.trim();
+            if (isNaN(responsableValue)) {
+                throw new Error("El responsable debe ser un ID numérico");
+            }
+            formData.append('Responsable', responsableValue);
+
+            formData.append('Data_Inici', document.getElementById('Data_Inici').value);
+            formData.append('Data_Fi', document.getElementById('Data_Fi').value);
+            formData.append('Estat_Tasca', document.getElementById('Estat_Tasca').value.trim());
+
+            const material = document.getElementById('Material_Utilitzat').value.trim();
+            if (material) formData.append('Material_Utilitzat', material);
+
+            const comentaris = document.getElementById('Comentaris').value.trim();
+            if (comentaris) formData.append('Comentaris', comentaris);
 
             const response = await fetch('http://localhost:8000/planificacio/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Accept': 'application/json'
                 },
                 body: formData.toString()
             });
 
-            const data = await response.json();
+            const responseData = await response.json();
 
-            if (response.ok) {
-                showMessage(data.message || 'Planificació creada correctament!', 'success');
-                form.reset(); // Limpiar formulario
-                fetchPlanificacions(); // Actualizar tabla tras creación
-            } else {
-                showMessage(`Error: ${data.detail || 'Error desconegut'}`, 'error');
+            if (!response.ok) {
+                // Manejar errores del backend
+                const errorMsg = responseData.detail ||
+                                (responseData.message || 'Error desconegut');
+                if (typeof errorMsg === 'object') {
+                    throw new Error(JSON.stringify(errorMsg));
+                } else {
+                    throw new Error(errorMsg);
+                }
             }
+
+            // Éxito
+            showMessage('Planificació creada correctament!');
+            setTimeout(() => {
+                window.location.href = "index_table_users.html";
+            }, 1500);
+
         } catch (error) {
-            showMessage(`Error de connexió: ${error.message}`, 'error');
+            // Mostrar mensaje de error claro
+            let errorMessage = error.message;
+
+            // Si es un string JSON, parsearlo
+            try {
+                const parsedError = JSON.parse(error.message);
+                if (parsedError && typeof parsedError === 'object') {
+                    errorMessage = Object.entries(parsedError)
+                        .map(([key, value]) => `${key}: ${value}`)
+                        .join(', ');
+                }
+            } catch (e) {
+                // No es JSON, mantener el mensaje original
+            }
+
+            showMessage(`Error: ${errorMessage}`, 'error');
         }
     });
 
     function showMessage(text, type) {
         messageDiv.textContent = text;
-        messageDiv.className = 'message ' + type;
+        messageDiv.className = `message ${type}`;
+        setTimeout(() => {
+            messageDiv.textContent = '';
+            messageDiv.className = 'message';
+        }, 5000);
     }
 });

@@ -26,7 +26,7 @@
             </header>
         <div class="container">
             <h1>Crear Nou Punt de Venta</h1>
-            <form id="userForm">
+            <form id="puntForm">  <!-- ID corregido -->
                 <div class="form-group">
                     <label for="Nom_punt">Nom:</label>
                     <input type="text" id="Nom_punt" name="Nom_punt" required>
@@ -42,25 +42,26 @@
                     <input type="number" id="Quantitat" name="Quantitat" min="1" max="999" required>
                 </div>
                 <div class="form-group">
-                    <label for="preu">Preu Total:</label>
-                    <input type="number" id="preu" name="Quantitat" min="1" max="999" required>
+                    <label for="Preu_Total">Preu Total:</label>
+                   <input type="number" id="Preu_Total" name="Preu_Total">  <!-- ID corregido -->
                 </div>
-                
+
                 <div class="form-group">
                     <label for="metode">Metode pagament:</label>
                     <input type="text" id="metode" name="metode" required>
-                </div> 
+                </div>
                 <!-- la resposta a de ser true or false -->
                 <div class="form-group">
-                    <label for="tiquet">Tiquet</label>
-                    <input type="text" id="tiquet" pattern="^(true|false)$ name="tiquet" required>
+                    <label for="Tiquet_Email">Tiquet</label>
+                    <input type="hidden" name="Tiquet_Email" value="false">
+<input type="checkbox" id="Tiquet_Email" name="Tiquet_Email" value="true" required>
                 </div>
                 <div class="form-group">
                     <label for="data">Data</label>
                     <input type="date" id="data" name="data" required>
                 </div>
 
-                <button type="submit">Crear Usuari</button>
+                <button type="submit">Crear Punt de venda</button>
                 </br></br>
                 <div class="action-buttons">
                 <button><a href="index_table_users.html" class="action-btn">

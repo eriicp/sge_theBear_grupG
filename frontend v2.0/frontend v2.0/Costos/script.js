@@ -1,60 +1,71 @@
-// URL del endpoint de la API
 const API_URL = "http://localhost:8000/costos/ver";
 
-// Función para obtener los datos de los costos
 async function fetchCostos() {
     try {
         const response = await fetch(API_URL);
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status}`);
-        }
-        const costos = await response.json(); // Convertimos la respuesta a JSON
-        displayCostos(costos); // Mostramos los datos en la tabla
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        const costos = await response.json();
+
+        console.log("Datos recibidos del servidor:", costos);
+        displayCostos(costos);
     } catch (error) {
-        console.error("Error al obtener los costos:", error);
+        console.error("Error al obtener costos:", error);
+        document.querySelector("#costosTable tbody").innerHTML =
+            `<tr><td colspan="6" style="color: red; text-align: center;">Error carregant dades: ${error.message}</td></tr>`;
     }
 }
 
-// Función para mostrar los costos en la tabla
 function displayCostos(costos) {
     const tableBody = document.querySelector("#costosTable tbody");
-
-    // Limpiamos el contenido actual de la tabla
     tableBody.innerHTML = "";
 
-    // Iteramos sobre la lista de costos y creamos las filas de la tabla
+    if (!costos || costos.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center;">No hi ha costos registrats</td></tr>`;
+        return;
+    }
+
     costos.forEach(cost => {
         const row = document.createElement("tr");
 
-        // Creamos las celdas para cada campo del costo
+        // ID
         const idCell = document.createElement("td");
-        idCell.textContent = cost.Id_Cost;
+        idCell.textContent = cost.Id_Cost || '-';
         row.appendChild(idCell);
 
+        // Descripción
         const descCell = document.createElement("td");
-        descCell.textContent = cost.Descripcio;
+        descCell.textContent = cost.Descripcio || '-';
         row.appendChild(descCell);
 
+        // Categoría
         const categoriaCell = document.createElement("td");
-        categoriaCell.textContent = cost.Categoria;
+        categoriaCell.textContent = cost.Categoria || '-';
         row.appendChild(categoriaCell);
 
+        // Cantidad (formato moneda)
         const quantitatCell = document.createElement("td");
-        quantitatCell.textContent = cost.Quantitat;
+        const quantitat = parseFloat(cost.Quantitat);
+        quantitatCell.textContent = isNaN(quantitat) ? '-' :
+                                  `${quantitat.toFixed(2)} €`;
+        quantitatCell.style.textAlign = 'right';
         row.appendChild(quantitatCell);
 
+        // Fecha (formateada)
         const dataCell = document.createElement("td");
-        dataCell.textContent = cost.Data_Cost;
+        const costDate = new Date(cost.Data_Cost);
+        dataCell.textContent = isNaN(costDate.getTime()) ?
+            'Data invàlida' :
+            costDate.toLocaleDateString('ca-ES');
         row.appendChild(dataCell);
 
+        // Pagado por
         const pagatPerCell = document.createElement("td");
-        pagatPerCell.textContent = cost.Pagat_Per;
+        pagatPerCell.textContent = cost.Pagat_Per || 'Desconegut';
         row.appendChild(pagatPerCell);
 
-        // Añadimos la fila a la tabla
         tableBody.appendChild(row);
     });
 }
 
-// Llamamos a la función para obtener y mostrar los costos cuando la página se carga
+// Iniciar carga de costos
 document.addEventListener("DOMContentLoaded", fetchCostos);

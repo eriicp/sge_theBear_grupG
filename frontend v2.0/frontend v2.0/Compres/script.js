@@ -1,68 +1,90 @@
-// URL del endpoint de la API
 const API_URL = "http://localhost:8000/compres/ver";
 
-// Función para obtener los datos de las compras
 async function fetchCompres() {
     try {
         const response = await fetch(API_URL);
         if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status}`);
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.detail || errorData.message || `Error ${response.status}`);
         }
-        const compres = await response.json(); // Convertimos la respuesta a JSON
-        displayCompres(compres); // Mostramos los datos en la tabla
+        const compres = await response.json();
+        displayCompres(compres);
     } catch (error) {
-        console.error("Error al obtener las compras:", error);
+        console.error("Error al obtener compres:", error);
+        showTableError(error.message);
     }
 }
 
-// Función para mostrar las compras en la tabla
 function displayCompres(compres) {
     const tableBody = document.querySelector("#compresTable tbody");
-
-    // Limpiamos el contenido actual de la tabla
     tableBody.innerHTML = "";
 
-    // Iteramos sobre la lista de compras y creamos las filas de la tabla
+    if (!compres || compres.length === 0) {
+        showTableMessage("No hi ha compres registrades");
+        return;
+    }
+
     compres.forEach(compra => {
         const row = document.createElement("tr");
 
-        // Creamos las celdas para cada campo de la compra
-        const idCell = document.createElement("td");
-        idCell.textContent = compra.Id_Compra;
-        row.appendChild(idCell);
-
+        // Formatear fecha
         const dataCell = document.createElement("td");
-        dataCell.textContent = compra.Data_Compra;
-        row.appendChild(dataCell);
+        try {
+            const data = new Date(compra.Data_Compra);
+            dataCell.textContent = data.toLocaleDateString('ca-ES');
+        } catch {
+            dataCell.textContent = compra.Data_Compra || '-';
+        }
 
-        const proveidorCell = document.createElement("td");
-        proveidorCell.textContent = compra.Proveidor;
-        row.appendChild(proveidorCell);
-
-        const producteCell = document.createElement("td");
-        producteCell.textContent = compra.Producte_Compra;
-        row.appendChild(producteCell);
-
-        const quantitatCell = document.createElement("td");
-        quantitatCell.textContent = compra.Quantitat;
-        row.appendChild(quantitatCell);
-
-        const preuUnitariCell = document.createElement("td");
-        preuUnitariCell.textContent = compra.Preu_Unitari;
-        row.appendChild(preuUnitariCell);
+        // Formatear precios
+        const preuCell = document.createElement("td");
+        preuCell.textContent = compra.Preu_Unitari ?
+            `${parseFloat(compra.Preu_Unitari).toFixed(2)} €` : '-';
+        preuCell.style.textAlign = 'right';
 
         const totalCell = document.createElement("td");
-        totalCell.textContent = compra.Total;
-        row.appendChild(totalCell);
+        totalCell.textContent = compra.Total ?
+            `${parseFloat(compra.Total).toFixed(2)} €` : '-';
+        totalCell.style.textAlign = 'right';
 
-        const estatCell = document.createElement("td");
-        estatCell.textContent = compra.Estat_Comanda;
-        row.appendChild(estatCell);
+        // Añadir celdas
+        row.innerHTML = `
+            <td>${compra.Id_Compra || '-'}</td>
+            <td>${dataCell.textContent}</td>
+            <td>${compra.Proveidor || '-'}</td>
+            <td>${compra.Producte_Compra || '-'}</td>
+            <td style="text-align: right;">${compra.Quantitat || 0}</td>
+            <td style="text-align: right;">${preuCell.textContent}</td>
+            <td style="text-align: right;">${totalCell.textContent}</td>
+            <td>${compra.Estat_Comanda || '-'}</td>
+        `;
 
-        // Añadimos la fila a la tabla
         tableBody.appendChild(row);
     });
 }
 
-// Llamamos a la función para obtener y mostrar las compras cuando la página se carga
+function showTableMessage(message) {
+    const tableBody = document.querySelector("#compresTable tbody");
+    tableBody.innerHTML = `
+        <tr>
+            <td colspan="8" style="text-align: center;">
+                ${message}
+            </td>
+        </tr>`;
+}
+
+function showTableError(error) {
+    const tableBody = document.querySelector("#compresTable tbody");
+    tableBody.innerHTML = `
+        <tr>
+            <td colspan="8" style="text-align: center; color: red;">
+                Error: ${error}
+            </td>
+        </tr>`;
+}
+
+// Iniciar carga de compras
 document.addEventListener("DOMContentLoaded", fetchCompres);
+
+// Hacer la función accesible globalmente
+window.fetchCompres = fetchCompres;
